@@ -1,0 +1,223 @@
+// Role definitions and permissions
+export const ROLES = {
+  SUPER_ADMIN: 'Super Admin',
+  ADMIN: 'Admin',
+  SALES_EXECUTIVE: 'Sales Executive',
+  ACCOUNTANT: 'Accountant',
+  MANAGER: 'Manager',
+  SUPPORT_STAFF: 'Support Staff'
+};
+
+export const PERMISSIONS = {
+  // User Management
+  USER_CREATE: 'user:create',
+  USER_READ: 'user:read',
+  USER_UPDATE: 'user:update',
+  USER_DELETE: 'user:delete',
+  
+  // Client Management
+  CLIENT_CREATE: 'client:create',
+  CLIENT_READ: 'client:read',
+  CLIENT_UPDATE: 'client:update',
+  CLIENT_DELETE: 'client:delete',
+  
+  // Lead Management
+  LEAD_CREATE: 'lead:create',
+  LEAD_READ: 'lead:read',
+  LEAD_UPDATE: 'lead:update',
+  LEAD_DELETE: 'lead:delete',
+  LEAD_ASSIGN: 'lead:assign',
+  
+  // Quotation Management
+  QUOTATION_CREATE: 'quotation:create',
+  QUOTATION_READ: 'quotation:read',
+  QUOTATION_UPDATE: 'quotation:update',
+  QUOTATION_DELETE: 'quotation:delete',
+  QUOTATION_APPROVE: 'quotation:approve',
+  
+  // Invoice Management
+  INVOICE_CREATE: 'invoice:create',
+  INVOICE_READ: 'invoice:read',
+  INVOICE_UPDATE: 'invoice:update',
+  INVOICE_DELETE: 'invoice:delete',
+  INVOICE_APPROVE: 'invoice:approve',
+  
+  // Payment Management
+  PAYMENT_CREATE: 'payment:create',
+  PAYMENT_READ: 'payment:read',
+  PAYMENT_UPDATE: 'payment:update',
+  PAYMENT_DELETE: 'payment:delete',
+  
+  // AMC Management
+  AMC_CREATE: 'amc:create',
+  AMC_READ: 'amc:read',
+  AMC_UPDATE: 'amc:update',
+  AMC_DELETE: 'amc:delete',
+  
+  // Call Log Management
+  CALLLOG_CREATE: 'calllog:create',
+  CALLLOG_READ: 'calllog:read',
+  CALLLOG_UPDATE: 'calllog:update',
+  CALLLOG_DELETE: 'calllog:delete',
+  
+  // Document Management
+  DOCUMENT_CREATE: 'document:create',
+  DOCUMENT_READ: 'document:read',
+  DOCUMENT_UPDATE: 'document:update',
+  DOCUMENT_DELETE: 'document:delete',
+  
+  // Expense Management
+  EXPENSE_CREATE: 'expense:create',
+  EXPENSE_READ: 'expense:read',
+  EXPENSE_UPDATE: 'expense:update',
+  EXPENSE_DELETE: 'expense:delete',
+  EXPENSE_APPROVE: 'expense:approve',
+  
+  // Task Management
+  TASK_CREATE: 'task:create',
+  TASK_READ: 'task:read',
+  TASK_UPDATE: 'task:update',
+  TASK_DELETE: 'task:delete',
+  
+  // Report Access
+  REPORT_SALES: 'report:sales',
+  REPORT_FINANCIAL: 'report:financial',
+  REPORT_AMC: 'report:amc',
+  REPORT_EXECUTIVE: 'report:executive',
+  
+  // System Access
+  SYSTEM_SETTINGS: 'system:settings',
+  SYSTEM_AUDIT: 'system:audit'
+};
+
+// Role-based permission mapping
+export const ROLE_PERMISSIONS = {
+  [ROLES.SUPER_ADMIN]: Object.values(PERMISSIONS), // All permissions
+  
+  [ROLES.ADMIN]: [
+    PERMISSIONS.USER_CREATE,
+    PERMISSIONS.USER_READ,
+    PERMISSIONS.USER_UPDATE,
+    PERMISSIONS.CLIENT_CREATE,
+    PERMISSIONS.CLIENT_READ,
+    PERMISSIONS.CLIENT_UPDATE,
+    PERMISSIONS.CLIENT_DELETE,
+    PERMISSIONS.LEAD_CREATE,
+    PERMISSIONS.LEAD_READ,
+    PERMISSIONS.LEAD_UPDATE,
+    PERMISSIONS.LEAD_DELETE,
+    PERMISSIONS.LEAD_ASSIGN,
+    PERMISSIONS.QUOTATION_CREATE,
+    PERMISSIONS.QUOTATION_READ,
+    PERMISSIONS.QUOTATION_UPDATE,
+    PERMISSIONS.QUOTATION_APPROVE,
+    PERMISSIONS.INVOICE_CREATE,
+    PERMISSIONS.INVOICE_READ,
+    PERMISSIONS.INVOICE_UPDATE,
+    PERMISSIONS.INVOICE_APPROVE,
+    PERMISSIONS.PAYMENT_CREATE,
+    PERMISSIONS.PAYMENT_READ,
+    PERMISSIONS.PAYMENT_UPDATE,
+    PERMISSIONS.AMC_CREATE,
+    PERMISSIONS.AMC_READ,
+    PERMISSIONS.AMC_UPDATE,
+    PERMISSIONS.AMC_DELETE,
+    PERMISSIONS.DOCUMENT_CREATE,
+    PERMISSIONS.DOCUMENT_READ,
+    PERMISSIONS.DOCUMENT_UPDATE,
+    PERMISSIONS.DOCUMENT_DELETE,
+    PERMISSIONS.EXPENSE_READ,
+    PERMISSIONS.EXPENSE_APPROVE,
+    PERMISSIONS.TASK_CREATE,
+    PERMISSIONS.TASK_READ,
+    PERMISSIONS.TASK_UPDATE,
+    PERMISSIONS.REPORT_SALES,
+    PERMISSIONS.REPORT_FINANCIAL,
+    PERMISSIONS.REPORT_AMC,
+    PERMISSIONS.REPORT_EXECUTIVE,
+    PERMISSIONS.SYSTEM_AUDIT,
+    PERMISSIONS.SYSTEM_SETTINGS
+  ],
+  
+  [ROLES.SALES_EXECUTIVE]: [
+    PERMISSIONS.CLIENT_CREATE,
+    PERMISSIONS.CLIENT_READ,
+    PERMISSIONS.CLIENT_UPDATE,
+    PERMISSIONS.LEAD_CREATE,
+    PERMISSIONS.LEAD_READ,
+    PERMISSIONS.LEAD_UPDATE,
+    PERMISSIONS.QUOTATION_CREATE,
+    PERMISSIONS.QUOTATION_READ,
+    PERMISSIONS.QUOTATION_UPDATE,
+    PERMISSIONS.INVOICE_READ,
+    PERMISSIONS.PAYMENT_READ,
+    PERMISSIONS.AMC_READ,
+    PERMISSIONS.CALLLOG_CREATE,
+    PERMISSIONS.CALLLOG_READ,
+    PERMISSIONS.CALLLOG_UPDATE,
+    PERMISSIONS.DOCUMENT_READ,
+    PERMISSIONS.TASK_CREATE,
+    PERMISSIONS.TASK_READ,
+    PERMISSIONS.TASK_UPDATE,
+    PERMISSIONS.REPORT_SALES
+  ],
+  
+  [ROLES.ACCOUNTANT]: [
+    PERMISSIONS.CLIENT_READ,
+    PERMISSIONS.QUOTATION_READ,
+    PERMISSIONS.INVOICE_CREATE,
+    PERMISSIONS.INVOICE_READ,
+    PERMISSIONS.INVOICE_UPDATE,
+    PERMISSIONS.PAYMENT_CREATE,
+    PERMISSIONS.PAYMENT_READ,
+    PERMISSIONS.PAYMENT_UPDATE,
+    PERMISSIONS.EXPENSE_CREATE,
+    PERMISSIONS.EXPENSE_READ,
+    PERMISSIONS.EXPENSE_UPDATE,
+    PERMISSIONS.REPORT_FINANCIAL,
+    PERMISSIONS.REPORT_AMC
+  ],
+  
+  [ROLES.MANAGER]: [
+    PERMISSIONS.USER_READ,
+    PERMISSIONS.CLIENT_READ,
+    PERMISSIONS.LEAD_READ,
+    PERMISSIONS.LEAD_ASSIGN,
+    PERMISSIONS.QUOTATION_READ,
+    PERMISSIONS.QUOTATION_APPROVE,
+    PERMISSIONS.INVOICE_READ,
+    PERMISSIONS.PAYMENT_READ,
+    PERMISSIONS.AMC_READ,
+    PERMISSIONS.CALLLOG_READ,
+    PERMISSIONS.EXPENSE_READ,
+    PERMISSIONS.EXPENSE_APPROVE,
+    PERMISSIONS.TASK_CREATE,
+    PERMISSIONS.TASK_READ,
+    PERMISSIONS.TASK_UPDATE,
+    PERMISSIONS.REPORT_SALES,
+    PERMISSIONS.REPORT_FINANCIAL,
+    PERMISSIONS.REPORT_AMC,
+    PERMISSIONS.REPORT_EXECUTIVE
+  ],
+  
+  [ROLES.SUPPORT_STAFF]: [
+    PERMISSIONS.CLIENT_READ,
+    PERMISSIONS.AMC_READ,
+    PERMISSIONS.CALLLOG_CREATE,
+    PERMISSIONS.CALLLOG_READ,
+    PERMISSIONS.TASK_CREATE,
+    PERMISSIONS.TASK_READ,
+    PERMISSIONS.TASK_UPDATE
+  ]
+};
+
+// Helper function to check if a role has a specific permission
+export const hasPermission = (role, permission) => {
+  const permissions = ROLE_PERMISSIONS[role] || [];
+  return permissions.includes(permission);
+};
+
+// Helper function to get all permissions for a role
+export const getRolePermissions = (role) => {
+  return ROLE_PERMISSIONS[role] || [];
+};
