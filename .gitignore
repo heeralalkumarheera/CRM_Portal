@@ -1,5 +1,9 @@
 # Global ignores for monorepo
 
+# Environment files (never commit secrets)
+.env
+crm-backend/.env.example
+
 # OS
 .DS_Store
 Thumbs.db

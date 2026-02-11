@@ -340,7 +340,7 @@ ISC License
 
 **ATPL Team**
 
-For support or queries, contact: support@atpl.com
+For support or queries, contact: heeralalkumarheera@gmail.com
 
 ---
 
